@@ -4,7 +4,7 @@ A tool that scores your GitHub README out of 100 and suggests improvements using
 
 Paste your README, get a score, and see exactly what's missing.
 
-**Live Demo:** [readme-ai-doctor.vercel.app](https://readme-ai-doctor-srqs.vercel.app/result)
+**Live Demo:** [readme-ai-doctor.vercel.app](https://readme-ai-doctor-srqs.vercel.app)
 
 ---
 
