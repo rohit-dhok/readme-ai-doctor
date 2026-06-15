@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import ScoreCircle from '../components/ScoreCircle'
-import CheckListItem from '../components/CheckListItem'
+import CheckListItem from '../components/ChecklistItem'
 import SuggestionCard from '../components/SuggestionCard'
 import { useLocation, useNavigate } from 'react-router-dom'
 
