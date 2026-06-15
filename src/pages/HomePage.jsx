@@ -1,6 +1,8 @@
 import React from 'react'
+import { analyzeReadme } from '../utils/scorer'
 
 function HomePage() {
+  console.log(analyzeReadme("## Installation \n ## Usage \n shields.io"))
   return (
     <section>
       <div className="home-container">
