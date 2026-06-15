@@ -1,8 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { analyzeReadme } from '../utils/scorer'
+import { getAISugesttions } from '../utils/ai_client'
+import { useNavigate } from 'react-router-dom'
+import LoadingSpinner from '../components/LoadingSpinner'
+
 
 function HomePage() {
-  console.log(analyzeReadme("## Installation \n ## Usage \n shields.io"))
+  const [readmeText, setReadmeText] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  async function handleAnalyzeBtn() {
+    if (readmeText.trim().length === 0) {
+      alert("Please paste your README first!");
+      return;
+    }
+    setIsLoading(true);
+    const result = analyzeReadme(readmeText);
+    const suggestions = await getAISugesttions(readmeText);
+    navigate('/result', {
+      state: {
+        score: result.score,
+        checklist: result.checklist,
+        suggestions: suggestions
+      }
+    })
+  }
+
   return (
     <section>
       <div className="home-container">
@@ -11,10 +35,10 @@ function HomePage() {
           <p>Paste it below to find out!</p>
         </div>
 
-        <textarea  name="" id="" placeholder='paste README here...'></textarea>
+        <textarea onChange={(e) => setReadmeText(e.target.value)} name="" id="" placeholder='paste README here...'></textarea>
 
         <div className="home-buttons">
-          <button className='btn-analyze'>Analyze README</button>
+          {isLoading ? <LoadingSpinner/> : <button onClick={handleAnalyzeBtn} className='btn-analyze'>Analyze README</button>}
           <button className='btn-tryExample'>Try Example</button>
         </div>
       </div>
