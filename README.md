@@ -27,7 +27,7 @@ Paste your README, get a score, and see exactly what's missing.
 ## Run Locally
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/readme-ai-doctor.git
+git clone https://github.com/rohit-dhok/readme-ai-doctor.git
 cd readme-ai-doctor
 npm install
 ```
